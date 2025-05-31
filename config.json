@@ -2,7 +2,9 @@
 	"outdir": ".",
 	"clientID": "00000000-0000-0000-0000-000000000000",
 	"mapping": {
-		"us": "45.50.96.71"
+		"us": "45.50.96.71",
+		"CA": "99.209.0.0",
+		"NO": "185.126.180.0"
 	},
 	"all": false,
 	"group": "genre",
@@ -12,5 +14,8 @@
 	"uniqueClientid": false,
 	"randomClientid": false,
 	"refresh": 0,
-	"xTvgUrl": false
+	"xTvgUrl": false,
+	"ondemand": false,
+	"vlcopts": false,
+	"pipeopts": false
 }
