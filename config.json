@@ -2,14 +2,14 @@
 	"outdir": ".",
 	"clientID": "00000000-0000-0000-0000-000000000000",
 	"mapping": {
-		"us": "45.50.96.71",
+		"NO": "160.68.205.231",
 		"CA": "99.209.0.0",
-		"NO": "185.126.180.0"
+		"US": "45.50.96.71"
 	},
 	"all": false,
 	"group": "genre",
 	"regionalize": false,
-	"excludeGroups": false,
+	"excludeGroups": "^(Sports|En Español|En Français|Sport|Kids|Kids en Français|For barn|Westerns|Game Shows|Multicultural|Mat & livsstil|Anime)$",
 	"excludeChannels": false,
 	"uniqueClientid": false,
 	"randomClientid": false,
