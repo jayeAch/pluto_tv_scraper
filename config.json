@@ -1,4 +1,4 @@
- {
+{
 	"outdir": ".",
 	"clientID": "00000000-0000-0000-0000-000000000000",
 	"mapping": {
@@ -9,7 +9,7 @@
 	"all": false,
 	"group": "genre",
 	"regionalize": false,
-	"excludeGroups": "^(Sports|En Español|En Français|Sport|Kids|Kids en Français|For barn|Westerns|Game Shows|Multicultural|Mat & livsstil|Anime|Nyheter|Local News|News \\+ Opinion|History \\+ Science|Documentary \\+ Science|Animals \\+ Nature)$",
+	"excludeGroups": "^(Sports|En Español|En Français|Sport|Kids|Kids en Français|For barn|Westerns|Game Shows|Multicultural|Mat & livsstil|Anime|Nyheter|Local News|News \\+ Opinion|History \\+ Science|Documentary \\+ Science|Animals \\+ Nature|Home \\+ Food|Talkshow|Dokumentarer|Competition Reality|Daytime TV|Det beste fra MTV|Reality|Realityserier)$",
 	"excludeChannels": false,
 	"uniqueClientid": false,
 	"randomClientid": false,
@@ -18,4 +18,4 @@
 	"ondemand": false,
 	"vlcopts": false,
 	"pipeopts": false
- }
+}
