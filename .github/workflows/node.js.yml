@@ -1,42 +1,14 @@
-name: Node.js CI
+# Clone your repo if you haven't
+git clone https://github.com/jayeAch/pluto_tv_scraper.git
+cd pluto_tv_scraper
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+# Initialize Node.js project (creates package.json)
+npm init -y
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
+# Install required dependencies (add whatever packages you need)
+npm install axios cheerio
 
-    steps:
-    - uses: actions/checkout@v4
-    
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'  # Change to 'yarn' if using Yarn
-    
-    # First generate lock file if missing (only needed once)
-    - name: Install dependencies
-      run: |
-        if [ ! -f package-lock.json ] && [ ! -f yarn.lock ]; then
-          npm install
-        fi
-    
-    # Then use proper install command
-    - name: Install dependencies (ci mode)
-      run: |
-        if [ -f yarn.lock ]; then
-          yarn install --frozen-lockfile
-        else
-          npm ci
-        fi
-    
-    - run: npm run build --if-present
-    - run: npm test
+# Commit these files
+git add package.json package-lock.json
+git commit -m "Initialize Node.js project"
+git push origin main
