@@ -1,22 +1,22 @@
-name: Run and Commit Script (Every 12 Hours)
+name: Update M3U8/XML Playlists
 on:
   schedule:
-    - cron: '0 */12 * * *'  # Runs every 12 hours
-  workflow_dispatch:  # Optional: Manual trigger
+    - cron: '0 */12 * * *'  # Runs every 12 hours at :00 (UTC)
+  workflow_dispatch:         # Optional: Manual trigger
 
 jobs:
-  run-script:
+  update-files:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # Required to push changes
+      contents: write  # Required to commit/push changes
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Ensures Git history for proper commits
+          fetch-depth: 0  # Needed for proper git diff
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -24,23 +24,33 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run script (generates files)
-        run: node index.js  # Your script should output files (e.g., `output.json`)
+      - name: Generate M3U8/XML files
+        run: node index.js  # Your script that creates the files
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Check if files changed (replace `output.json` with your file(s))
-          if git diff --quiet --exit-code output.json; then
-            echo "No changes detected."
+          # Check for changes in M3U8/XML files (adjust extensions as needed)
+          if git diff --quiet --exit-code '**/*.{m3u8,xml}'; then
+            echo "No changes detected in playlists."
             exit 0
           fi
 
-          echo "Changes detected. Committing..."
-          git add output.json  # Stage the modified file(s)
-          git commit -m "Auto-update: Script output [skip ci]"
-          git push
+          echo "Changes detected. Committing updates..."
+          git add '**/*.{m3u8,xml}'  # Stage all M3U8/XML files
+          git commit -m "Auto-update playlists [skip ci]"
+          
+          # Retry push to handle transient errors
+          n=0
+          until [ "$n" -ge 3 ]
+          do
+            git push && break
+            n=$((n+1))
+            echo "Push attempt $n/3 failed. Retrying in 5s..."
+            sleep 5
+          done
+          [ "$n" -ge 3 ] && echo "Push failed after 3 attempts." && exit 1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatic auth token
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Auto-injected secret
