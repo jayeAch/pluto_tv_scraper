@@ -30,6 +30,6 @@ jobs:
       # Commit and push the generated files
       - name: Upload to Repo
         run: |
-          git add *.m3u8 *.xmltv
+          git add *.m3u8 *.xml
           git commit -m "Auto-update Pluto TV data"
           git push
