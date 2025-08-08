@@ -17,7 +17,5 @@ jobs:
       with:
         node-version: 'lts/*'
         cache: 'npm'
-    - run: npm update
-    - run: npm init -y
-    - run: npm install
+    - run: npm ci # Use npm ci instead of npm install for CI environments
     - run: node index
