@@ -1,4 +1,4 @@
-name: Run Node.js Script (Every 12 Hours)
+name: Run Node.js Script (Every 12 Hours) 
 on:
   schedule:
     # Runs every 12 hours (at 00:00 and 12:00 UTC)
