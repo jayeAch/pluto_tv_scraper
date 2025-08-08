@@ -1,2 +1,0 @@
-npm init -y        # if you don't have package.json
-npm install        # this creates package-lock.json
