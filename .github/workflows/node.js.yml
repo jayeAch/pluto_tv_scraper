@@ -16,5 +16,5 @@ jobs:
       with:
         node-version: 'lts/*'
         cache: 'npm'  # Requires package-lock.json
-    - run: npm ci     # Clean install for CI
+    - run: npm install    # Clean install for CI
     - run: node index
