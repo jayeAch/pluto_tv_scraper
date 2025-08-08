@@ -2,18 +2,22 @@
 	"outdir": ".",
 	"clientID": "00000000-0000-0000-0000-000000000000",
 	"mapping": {
-		"us": "45.50.96.71"
+		"NO": "160.68.205.231",
+		"CA": "99.209.0.0",
+		"US": "45.50.96.71",
+		"GB": "130.195.223.5",
+		"IE": "146.70.48.11"
 	},
 	"all": false,
 	"group": "genre",
-	"regionalize": false,
-	"excludeGroups": false,
-	"excludeChannels": false,
+	"regionalize": true,
+	"excludeGroups": "^(Sports|En Español|En Français|Sport|Kids|Kids en Français|For barn|Westerns|Game Shows|Multicultural|Mat & livsstil|Anime|Nyheter|Local News|News \\+ Opinion|History \\+ Science|Documentary \\+ Science|Animals \\+ Nature|Home \\+ Food|Talkshow|Dokumentarer|Competition Reality|Daytime TV|Det beste fra MTV|Reality|Realityserier|The Black Collective|News)$",
+	"excludeChannels": "Black|Latino|BET|CSI|NCIS|JAG|Judge Judy|Football|Soccer|CMT|MTV Pride|AWSN|ALLBLK|Bounce XL|Logo Pluto TV|Out TV Proud|PRIDEtv|Moesha|Mythbusters|FailArmy|World War TV|Get.factual|Westerns|Avatar|Inazuma|Yu-Gi-Oh!|Conners|Nash Bridges|Ebony|Karadayi|Bes Kardes|Merhaba|Turkish|Robot Wars|Anime|Frasier|Cheers|Nashville|Baywatch|Degrassi|Dynasty|Heartland|90210|Shoe|Melrose|Numb3rs|Midsomer|Whisperer|Matlock|Mason|Griffith|Hillbillies|Blue Bloods|Criminal Minds|Doc Martin|Flashpoint|Hearties|Doctor Who|Wildfire|Scorpion|Good Wife|Bounty Hunter|Love Boat|Happy Days|Love Lucy|Medium|Taxi|Van Dyke|She Wrote|Who's the Boss|King of Queens|Rookie Blue|Diagnosis Murder|Hawaii Five-0|Mission Impossible|MacGyver|Wild at Heart|McLeod's Daughters|Hell's Kitchen|Love Pets|Anger Management|Are We There Yet?|Red Green Channel|Sister|Engagement|Sabrina|Girlfriends|MST3K|Wild \\'N Out|RiffTrax|Awkward|Zoey 101|Johnny Carson|Ed Sullivan|Highway to Heaven|Hunter|Family Ties|Auction Hunters|Graham Norton|Wings|StarTalk|Ridiculousness|Becker|Caroline in the City|Fact or Fiction|Tales from the Darkside|The Twilight Zone|How To Use Pluto TV|Beauty and the Beast|Walker Texas Ranger|Nosey|Britain's Next Top Model|Wicked Tuna|Survivorman|Full Custom Garage|Top Gear|Fastest and Slowest Lap|Actors & Rockstars|Antiques Road Trip|Homes Under Hammer|The Hotel Inspector|location|Escape to the Country|Property Brothers: Buying & Selling|Desi Play TV",
 	"uniqueClientid": false,
-	"randomClientid": false,
+	"randomClientid": true,
 	"refresh": 0,
 	"xTvgUrl": false,
-	"ondemand": false,
+	"ondemand": true,
 	"vlcopts": false,
 	"pipeopts": false
 }
