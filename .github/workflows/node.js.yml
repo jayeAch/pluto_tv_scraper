@@ -1,20 +1,16 @@
-name: Node.js CI
+steps:
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v4
+    with:
+      node-version: 'lts/*'
+  - run: npm install
+  - run: node index  # Generates m3u8/xmltv files
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js LTS
-      uses: actions/setup-node@v4
-      with:
-        node-version: 'lts/*'
-        cache: 'npm'  # Requires package-lock.json
-    - run: npm install    # Clean install for CI
-    - run: node index
+  # NEW: Upload the generated files
+  - uses: actions/upload-artifact@v4
+    with:
+      name: pluto-tv-data
+      path: |
+        *.m3u8
+        *.xmltv
+      retention-days: 1  # Keep for 1 day (adjust as needed)
