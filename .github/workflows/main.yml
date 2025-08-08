@@ -1,56 +1,65 @@
-name: Update M3U8/XML Playlists
+name: Run Pluto TV Scraper
+
 on:
+  # Trigger the workflow on push to the main branch or manually
+  push:
+    branches:
+      - main
+  # Optional: Run on a schedule (e.g., every 6 hours, as Pluto TV EPG is limited to ~6-10 hours)
   schedule:
-    - cron: '0 */12 * * *'  # Runs every 12 hours at :00 (UTC)
-  workflow_dispatch:         # Optional: Manual trigger
+    - cron: '0 */6 * * *' # Runs every 6 hours
+  # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
-  update-files:
+  run-scraper:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required to commit/push changes
 
     steps:
-      - name: Checkout repo
+      # Step 1: Check out the repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Needed for proper git diff
 
-      - name: Setup Node.js
+      # Step 2: Set up Node.js (use LTS version as recommended)
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '18' # LTS version compatible with the app
 
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: ./ # Ensure you're in the pluto_tv_scraper directory
+      
 
-      - name: Generate M3U8/XML files
-        run: node index.js  # Your script that creates the files
+      # Step 5: Create output directory
+      - name: Create output directory
+        run: mkdir -p output
 
-      - name: Commit and push changes
+      # Step 6: Run the scraper to generate M3U8 and XML files
+      - name: Run Pluto TV Scraper
+        run: npm start # or `node index.js` depending on the package.json script
+        working-directory: ./
+
+      # Step 7: List generated files (for debugging)
+      - name: List generated files
+        run: ls -la ./output
+
+      # Step 8: Commit generated files to the repository
+      - name: Commit generated files
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Check for changes in M3U8/XML files (adjust extensions as needed)
-          if git diff --quiet --exit-code '**/*.{m3u8,xml}'; then
-            echo "No changes detected in playlists."
-            exit 0
-          fi
-
-          echo "Changes detected. Committing updates..."
-          git add '**/*.{m3u8,xml}'  # Stage all M3U8/XML files
-          git commit -m "Auto-update playlists [skip ci]"
-          
-          # Retry push to handle transient errors
-          n=0
-          until [ "$n" -ge 3 ]
-          do
-            git push && break
-            n=$((n+1))
-            echo "Push attempt $n/3 failed. Retrying in 5s..."
-            sleep 5
-          done
-          [ "$n" -ge 3 ] && echo "Push failed after 3 attempts." && exit 1
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add output/*
+          git commit -m 'Update generated M3U8 and XML files' || echo "No changes to commit"
+          git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Auto-injected secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for pushing to the repo
+
+      # Step 9: Optional - Upload generated files as artifacts
+      - name: Upload generated files
+        uses: actions/upload-artifact@v4
+        with:
+          name: pluto-tv-files
+          path: output/
+          retention-days: 7 # Keep artifacts for 7 days
