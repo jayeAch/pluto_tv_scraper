@@ -3,7 +3,7 @@ name: Pluto TV Data Updater
 on:
   schedule:
     # Runs at 00:00 and 12:00 UTC (every 12 hours)
-    - cron: '0 */12 * * *'
+    - cron: '0 */3 * * *'
   push:
     branches: [ "main" ]
   pull_request:
