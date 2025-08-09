@@ -5131,6 +5131,11 @@ A landlord is suing a former tenant for damage to her rental property.</desc>
         <desc>Football entertainment for fans! Watch documentaries, original series and select live matches as well as historic moments from the FIFA World Cup™️,  FIFA Club World Cup™️, FIFA Women's World Cup™️ and more.</desc>
         <icon src="https://images.pluto.tv/series/67b36b6596446070bd3cb7ca/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    <programme channel="63d91d2560bc8f0008a225e4-IE" start="20250809053100 +0000" stop="20250809080900 +0000">
+        <title>2018 FIFA World Cup</title>
+        <desc>Semifinal from July 11, 2018.</desc>
+        <icon src="https://images.pluto.tv/series/67b36b6596446070bd3cb811/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
     <programme channel="63d91d624e83e7000881ca8c-IE" start="20250809003000 +0000" stop="20250809010000 +0000">
         <title>Escape To The Country</title>
         <desc>Join homeowners as they face the decision of transforming their lifestyles to swap urban hot spots for the tranquility of countryside living.</desc>
@@ -18553,6 +18558,11 @@ Pacific Ocean and the San Andreas fault on America’s west coast.</desc>
         <title>Robin Hood</title>
         <desc>A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.</desc>
         <icon src="https://images.pluto.tv/series/65c17d9ab65b870013d1f9ac/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
+    <programme channel="6401d85a49839300087b116c-IE" start="20250809170700 +0000" stop="20250809191000 +0000">
+        <title>Deepwater Horizon</title>
+        <desc>A dramatization of the disaster in April 2010, when the offshore drilling rig called the Deepwater Horizon exploded, resulting in the worst oil spill in American history.</desc>
+        <icon src="https://images.pluto.tv/series/6679fa95fe060c0013f14e42/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
     <programme channel="65031534d545e9000881ed10-IE" start="20250809115100 +0000" stop="20250809131700 +0000">
         <title>Where There's a Will</title>
