@@ -19,5 +19,5 @@
 	"xTvgUrl": false,
 	"ondemand": false,
 	"vlcopts": false,
-	"pipeopts": false
+	"pipeopts": true
 }
