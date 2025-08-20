@@ -8,7 +8,7 @@
             "GB": "130.195.223.5",
             "IE": "146.70.48.11"
 	},
-	"all": false,
+	"all": true,
 	"group": "genre",
 	"regionalize": true,
 	"excludeGroups": "^Sport$|^Top Gear$|^Talkshow$|^Westerns$|^Musikk$|^Music$|^Competition Reality$|^Dokumentarer$|^Realityserier$|^Music Videos$|^Reality TV$|^Det beste fra MTV$|^Daytime TV$|^En Español$|^Mat & livsstil$|^News \\+ Opinion$|^Local News$|^Nyheter$|^Sports$|^Kids$|^South Park$|^Reality$|^Home \\+ Food$|^For barn$|^Game Shows$|^Big Brother Live$|^Anime$|^Animals \\+ Nature$|^History \\+ Science$|^News$|^Documentary \\+ Science$|^Documentaries$|^Living$|^Multicultural$|^Kids en Français$|^Real Life Adventure$|^En Français$",
