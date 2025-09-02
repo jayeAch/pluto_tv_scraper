@@ -1,23 +1,23 @@
 {
-	"outdir": ".",
-	"clientID": "00000000-0000-0000-0000-000000000000",
-	"mapping": {
-            "NO": "160.68.205.231",
-            "CA": "99.209.0.0",
-            "US": "45.50.96.71",
-            "GB": "130.195.223.5",
-            "IE": "146.70.48.11"
-	},
-	"all": true,
-	"group": "genre",
-	"regionalize": true,
-	"excludeGroups": "^Sport$|^Top Gear$|^Talkshow$|^Westerns$|^Musikk$|^Music$|^Competition Reality$|^Dokumentarer$|^Realityserier$|^Music Videos$|^Reality TV$|^Det beste fra MTV$|^Daytime TV$|^En Español$|^Mat & livsstil$|^News \\+ Opinion$|^Local News$|^Nyheter$|^Sports$|^Kids$|^South Park$|^Reality$|^Home \\+ Food$|^For barn$|^Game Shows$|^Big Brother Live$|^Anime$|^Animals \\+ Nature$|^History \\+ Science$|^News$|^Documentary \\+ Science$|^Documentaries$|^Living$|^Multicultural$|^Kids en Français$|^Real Life Adventure$|^En Français$",
-	"excludeChannels": "^Sister$|^Frasier$|^Cheers$|^Rawhide$|^Gunsmoke$|^Pokémon$|^Degrassi$|^Taxi$|^NCIS$|^CSI$|^JAG$|^Dynasty$|^Nashville$|^Baywatch$|^Djazz$|^Classica$|^Andromeda$|^FailArmy$|^Declassified$|^Wipeout$|^Wildfire$|^Scorpion$|^Numb3rs$|^Karadayi$|^Boligjakten$|^Flashpoint$|^MacGyver$|^Matlock$|^Wings$|^Survivorman$|^Charterfeber$|^COPS$|^Paradise$|^Black Cinema$|^Black Visionaries$|^Ebony TV Drama$|^Homeful$|^BET x Tyler Perry Drama$|^Luksusfellen$|^Robinsonekspedisjonen$|^HSN$|^QVC$|^Becker$|^BET Pluto TV$|^MythBusters$|^Bounce XL$|^MTV Pluto TV$|^Little House on the Prairie$|^Happy Days$|^Love Boat$|^Cheers \\+ Frasier$|^Survivor$|^Stargate$|^Awkward$|^Criminal Minds$|^Blue Bloods$|^Heartland$|^Fangene på Fortet$|^Eventyrlig Oppussing$|^Paradise Hotel$|^BET x Tyler Perry Comedy$|^Black Throwbacks$|^Hallmark Movies & More$|^Camp Kulinaris$|^Pluto TV Merhaba Turkish Drama$|^Inazuma Eleven$|^Yu-Gi-Oh!$|^Live Music$|^Nash Bridges$|^ET$|^Star Trek$|^Star Trek Deep Space Nine$|^Star Trek Voyager$|^Walker Texas Ranger$|^ALLBLK Gems$|^Revry$|^Logo Pluto TV$|^Movie Favorites By Lifetime$|^Beauty and the Beast$|^Mission Impossible$|^Diagnosis Murder$|^Chappelle's Show$|^Key & Peele$|^Tosh.0$|^Red Shoe Diaries$|^BET$|^The Twilight Zone$|^Tales from the Darkside$|^Caroline in the City$|^Sabrina the Teenage Witch$|^Family Ties$|^Judge Judy$|^7th Heaven$|^Iron Chef$|^Doctor Who Classic$|^Doc Martin$|^The Good Wife$|^Beverly Hills 90210$|^Melrose Place$|^CSI: NY$|^Midsomer Murders$|^Feel Good Drama$|^Ghost Dimension$|^Bes Kardes$|^Pluto TV Alien Invasion$|^Miami$|^Just for Laughs GAGS$|^Alien Nation by DUST$|^Pluto TV Buskis$|^How To Use Pluto TV$|^Documentary \\+ Science$|^Ghost Hunters$|^Wild at Heart$|^McLeod's Daughters$|^Fact or Fiction$|^King of Queens$|^Who's the Boss$|^The Red Green Channel$|^MTV Ridiculousness$|^Anger Management$|^I Love Lucy$|^The Andy Griffith Show$|^The Beverly Hillbillies$|^The Love Boat$|^Rookie Blue$|^Medium$|^Three's Company$|^The Carol Burnett Show$|^The Dick Van Dyke Show$|^Perry Mason$|^The Ed Sullivan Show$|^Johnny Carson TV$|^Nosey$|^Mythbusters$|^Out TV Proud$|^South Park$|^The Conners$|^Pointless$|^Eggheads$|^Ninja Warrior$|^Love Pets$|^Dog Whisperer$|^Highway to Heaven$|^Desi Play TV$|^Are We There Yet?$|^Funny AF$|^Moesha$|^Girlfriends$|^Wild 'N Out$|^U&Laughs$|^MST3K$|^RiffTrax$|^Sabrina The Teenage Witch$|^Corner Gas$|^Hawaii Five-O$|^Sketchy AF$|^Confess by Nosey$|^Rugby Pass TV$|^Touched by an Angel$|^Black Classics$|^Shades of Black$|^Car Chase$|^CSI: Miami$|^Sister, Sister$|^Super Channel Hearties$|^Hot Ones$|^Hell's Kitchen$|^Cash In The Attic$|^Avatar$|^Auction Hunters$|^PRIDEtv$|^Robot Wars by MECH+$|^Operation Repo$|^Hunter$|^Beverly Hillbillies$|^She Wrote$|^The Bob Ross Channel$|^Farscape$|^The Original Series$|^The Next Generation$|^Final Conflict$|^The Lost World$|^The Graham Norton Show$",
-	"uniqueClientid": false,
-	"randomClientid": true,
-	"refresh": 0,
-	"xTvgUrl": false,
-	"ondemand": false,
-	"vlcopts": true,
-	"pipeopts": false
+  "outdir": ".",
+  "clientID": "00000000-0000-0000-0000-000000000000",
+  "mapping": {
+    "NO": "160.68.205.231",
+    "CA": "99.209.0.0",
+    "US": "45.50.96.71",
+    "GB": "130.195.223.5",
+    "IE": "146.70.48.11"
+  },
+  "all": true,
+  "group": "genre",
+  "regionalize": true,
+  "excludeGroups": "^Animals \\+ Nature$|^Anime$|^Big Brother Live$|^Competition Reality$|^Daytime TV$|^Det beste fra MTV$|^Documentaries$|^Documentary \\+ Science$|^Dokumentarer$|^En Español$|^En Français$|^For barn$|^Game Shows$|^History \\+ Science$|^Home \\+ Food$|^Kids en Français$|^Kids$|^Living$|^Local News$|^Mat & livsstil$|^Multicultural$|^Music Videos$|^Music$|^Musikk$|^News \\+ Opinion$|^News$|^Nyheter$|^Real Life Adventure$|^Reality TV$|^Reality$|^Realityserier$|^South Park$|^Sport$|^Sports$|^Talkshow$|^Top Gear$|^Westerns$",
+  "excludeChannels": "^7th Heaven$|^ALLBLK Gems$|^Alien Nation by DUST$|^Andromeda$|^Anger Management$|^Are We There Yet?$|^Auction Hunters$|^Avatar$|^Awkward$|^BET Pluto TV$|^BET x Tyler Perry Comedy$|^BET x Tyler Perry Drama$|^BET$|^Baywatch$|^Beauty and the Beast$|^Becker$|^Bes Kardes$|^Beverly Hillbillies$|^Beverly Hills 90210$|^Black Cinema$|^Black Classics$|^Black Throwbacks$|^Black Visionaries$|^Blue Bloods$|^Boligjakten$|^Bounce XL$|^COPS$|^CSI$|^CSI: Miami$|^CSI: NY$|^Camp Kulinaris$|^Car Chase$|^Caroline in the City$|^Cash In The Attic$|^Chappelle's Show$|^Charterfeber$|^Cheers \\+ Frasier$|^Cheers$|^Classica$|^Confess by Nosey$|^Corner Gas$|^Criminal Minds$|^Declassified$|^Degrassi$|^Desi Play TV$|^Diagnosis Murder$|^Djazz$|^Doc Martin$|^Doctor Who Classic$|^Documentary \\+ Science$|^Dog Whisperer$|^Dynasty$|^ET$|^Ebony TV Drama$|^Eggheads$|^Eventyrlig Oppussing$|^Fact or Fiction$|^FailArmy$|^Family Ties$|^Fangene på Fortet$|^Farscape$|^Feel Good Drama$|^Final Conflict$|^Flashpoint$|^Frasier$|^Funny AF$|^Ghost Dimension$|^Ghost Hunters$|^Girlfriends$|^Gunsmoke$|^HSN$|^Hallmark Movies & More$|^Happy Days$|^Hawaii Five-O$|^Heartland$|^Hell's Kitchen$|^Highway to Heaven$|^Homeful$|^Hot Ones$|^How To Use Pluto TV$|^Hunter$|^I Love Lucy$|^Inazuma Eleven$|^Iron Chef$|^JAG$|^Johnny Carson TV$|^Judge Judy$|^Just for Laughs GAGS$|^Karadayi$|^Key & Peele$|^King of Queens$|^Little House on the Prairie$|^Live Music$|^Logo Pluto TV$|^Love Boat$|^Love Pets$|^Luksusfellen$|^MST3K$|^MTV Pluto TV$|^MTV Ridiculousness$|^MacGyver$|^Matlock$|^McLeod's Daughters$|^Medium$|^Melrose Place$|^Miami$|^Midsomer Murders$|^Mission Impossible$|^Moesha$|^Movie Favorites By Lifetime$|^MythBusters$|^Mythbusters$|^NCIS$|^Nash Bridges$|^Nashville$|^Ninja Warrior$|^Nosey$|^Numb3rs$|^Operation Repo$|^Out TV Proud$|^PRIDEtv$|^Paradise Hotel$|^Paradise$|^Perry Mason$|^Pluto TV Alien Invasion$|^Pluto TV Buskis$|^Pluto TV Merhaba Turkish Drama$|^Pointless$|^Pokémon$|^QVC$|^Rawhide$|^Red Shoe Diaries$|^Revry$|^RiffTrax$|^Robinsonekspedisjonen$|^Robot Wars by MECH+$|^Rookie Blue$|^Rugby Pass TV$|^Sabrina The Teenage Witch$|^Sabrina the Teenage Witch$|^Scorpion$|^Shades of Black$|^She Wrote$|^Sister$|^Sister, Sister$|^Sketchy AF$|^South Park$|^Star Trek Deep Space Nine$|^Star Trek Voyager$|^Star Trek$|^Stargate$|^Super Channel Hearties$|^Survivor$|^Survivorman$|^Tales from the Darkside$|^Taxi$|^The Andy Griffith Show$|^The Beverly Hillbillies$|^The Bob Ross Channel$|^The Carol Burnett Show$|^The Conners$|^The Dick Van Dyke Show$|^The Ed Sullivan Show$|^The Good Wife$|^The Graham Norton Show$|^The Lost World$|^The Love Boat$|^The Next Generation$|^The Original Series$|^The Red Green Channel$|^The Twilight Zone$|^Three's Company$|^Tosh.0$|^Touched by an Angel$|^U&Laughs$|^Walker Texas Ranger$|^Who's the Boss$|^Wild 'N Out$|^Wild at Heart$|^Wildfire$|^Wings$|^Wipeout$|^Yu-Gi-Oh!$",
+  "uniqueClientid": false,
+  "randomClientid": true,
+  "refresh": 0,
+  "xTvgUrl": false,
+  "ondemand": false,
+  "vlcopts": true,
+  "pipeopts": false
 }
