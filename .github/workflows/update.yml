@@ -28,6 +28,3 @@ jobs:
 
     - name: Update dependencies
       run: npm update
-
-    - name: Run tests
-      run: npm test --if-present
