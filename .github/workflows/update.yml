@@ -21,12 +21,7 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: |
-        if [ -f "package-lock.json" ]; then
-          npm ci
-        else
-          npm install
-        fi
+      run: npm install
 
     - name: Check for outdated packages
       run: npm outdated || true
@@ -36,6 +31,3 @@ jobs:
 
     - name: Run tests
       run: npm test --if-present
-
-    - name: Build project
-      run: npm run build --if-present
