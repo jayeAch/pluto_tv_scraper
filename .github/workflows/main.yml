@@ -26,6 +26,9 @@ jobs:
       - run: npm install
       - run: node index  # Generates *.m3u8 and *.xmltv files
       
+      - name: List generated files (for debugging)
+        run: ls -la *.m3u8 *.xml 2>/dev/null || echo "No files found"
+      
       - name: Setup Git
         run: |
           git config --global user.name "GitHub Actions"
@@ -33,12 +36,15 @@ jobs:
       
       - name: Commit and Push Updates
         run: |
-          # Check if there are changes to commit
-          git add *.m3u8 *.xml
-          if git diff-index --quiet HEAD --; then
-            echo "No changes to commit"
+          # Check if there are any files to add
+          if ls *.m3u8 *.xml 1> /dev/null 2>&1; then
+            git add *.m3u8 *.xml
+            if git diff-index --quiet HEAD --; then
+              echo "No changes to commit"
+            else
+              git commit -m "Auto-update Pluto TV data [$(date +'%Y-%m-%d %H:%M')]"
+              git push
+            fi
           else
-            git commit -m "Auto-update Pluto TV data [$(date +'%Y-%m-%d %H:%M')]"
-            git push
+            echo "No *.m3u8 or *.xml files found to commit"
           fi
-          
