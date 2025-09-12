@@ -1,22 +1,18 @@
-name: npm Dependency Maintenance
+name: npm Install and Update
 
 on:
-  schedule:
-    - cron: '0 0 * * 1' # Weekly on Monday at midnight
-  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
-  dependency-maintenance:
+  npm-install-update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -25,36 +21,21 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      run: npm ci
+      run: |
+        if [ -f "package-lock.json" ]; then
+          npm ci
+        else
+          npm install
+        fi
 
     - name: Check for outdated packages
-      run: |
-        echo "Outdated packages:"
-        npm outdated || echo "No outdated packages or error checking"
+      run: npm outdated || true
 
     - name: Update dependencies
       run: npm update
 
-    - name: Audit dependencies for vulnerabilities
-      run: npm audit --audit-level moderate
-
-    - name: Fix automatically remediable vulnerabilities
-      run: npm audit fix --no-fund --no-audit
-
-    - name: Run tests after updates
+    - name: Run tests
       run: npm test --if-present
 
-    - name: Create Pull Request for updates
-      if: success() && github.event_name == 'schedule'
-      uses: peter-evans/create-pull-request@v5
-      with:
-        commit-message: 'chore: update npm dependencies'
-        title: 'Weekly npm dependency updates'
-        body: |
-          Automated dependency updates performed by GitHub Actions.
-          
-          This PR includes:
-          - Regular dependency updates
-          - Security vulnerability fixes
-        branch: 'npm-dependencies-update'
-        delete-branch: true
+    - name: Build project
+      run: npm run build --if-present
