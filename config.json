@@ -14,7 +14,7 @@
 	"regionalize": true,
     "excludeGroups":
 	"^Animals \\+ Nature$|^Anime$|^Big Brother Live$|^Competition Reality$|^Daytime TV$|^Det beste fra MTV$|^Documentaries$|^Documentary \\+ Science$|^Dokumentarer$|^En Español$|^En Français$|^For barn$|^Game Shows$|^History \\+ Science$|^Home \\+ Food$|^Kids en Français$|^Kids$|^Living$|^Local News$|^Mat & livsstil$|^Multicultural$|^Music Videos$|^Music$|^Musikk$|^News \\+ Opinion$|^News$|^Nyheter$|^Real Life Adventure$|^Reality TV$|^Reality$|^Realityserier$|^Sport$|^Sports$|^Talkshow$|^Top Gear$|^Westerns$|^Barn$|^Det bästa från MTV|^Dokumentärer|^Musik$|^Paradise Hotel$|^Svensk reality och underhållning$|^Det bedste fra MTV$|^For børn$|^Dansk reality & underholdning$|^Mad & livsstil$",
-    "excludeChannels": false
+    "excludeChannels": false,
 	"uniqueClientid": false,
 	"randomClientid": true,
 	"refresh": 0,
