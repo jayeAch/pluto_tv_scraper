@@ -43,8 +43,9 @@ jobs:
               echo "No changes to commit"
             else
               git commit -m "Auto-update Pluto TV data [$(date +'%Y-%m-%d %H:%M')]"
-              git push
+              # Use --force-with-lease to handle cases where remote has changes
+              git push --force-with-lease
             fi
           else
-            echo "No *.m3u8 or *.xml files found to commit"
+            echo "No *.m3u8 or *..xml files found to commit"
           fi
