@@ -1,27 +1,56 @@
-- run: npm ci          # faster & more reliable in CI than npm install
-      - name: Run Pluto TV Data Generator
+name: Pluto TV Data Updater
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Use Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Pluto TV Updater
         run: node index 2>&1 | tee generation.log
 
-      - name: 🐛 Full Debug – What Actually Happened?
+      - name: Debug - Show generated files and status
         run: |
-          echo "📍 Working directory: $(pwd)"
-          echo "📋 All files in root:"
+          echo "Working directory: $(pwd)"
+          echo "=== All files in root ==="
           ls -la
-          
-          echo -e "\n🔍 Searching for generated files (recursive):"
-          find . -name "*.m3u*" -o -name "*.xml" | sort || echo "None found"
-          
-          echo -e "\n📊 Git status:"
-          git status --short
-          
-          echo -e "\n🗒️  Last 30 lines of script output:"
-          tail -30 generation.log
 
-      - name: Commit & Push Updates (if any)
+          echo -e "\n=== Searching for .m3u8 and .xml files ==="
+          find . -name "*.m3u*" -o -name "*.xml" | head -20 || echo "No matching files found"
+
+          echo -e "\n=== Git status ==="
+          git status --short
+
+          echo -e "\n=== Last 30 lines of script output ==="
+          tail -30 generation.log || echo "No log file"
+
+      - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update Pluto TV data [$(date +'%Y-%m-%d %H:%M')]"
-          file_pattern: "*.m3u8 *.xml **/*.m3u8 **/*.xml"   # catches root + subdirs
+          file_pattern: "*.m3u8 *.xml **/*.m3u8 **/*.xml"
           commit_user_name: GitHub Actions
           commit_user_email: actions@github.com
-          commit_author: GitHub Actions <actions@github.com>
