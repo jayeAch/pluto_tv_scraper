@@ -1,2 +1,4 @@
 node_modules/
 generation.log
+plutotv_*.m3u8
+plutotv_*.xml
