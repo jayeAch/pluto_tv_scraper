@@ -1,5 +1,4 @@
 - run: npm ci          # faster & more reliable in CI than npm install
-
       - name: Run Pluto TV Data Generator
         run: node index 2>&1 | tee generation.log
 
