@@ -1,0 +1,24 @@
+{
+	"outdir": ".",
+	"clientID": "00000000-0000-0000-0000-000000000000",
+	"mapping": {
+		 "NO": "160.68.205.231",
+         "CA": "192.206.151.131",
+         "US": "45.50.96.71",
+         "GB": "178.238.11.6",
+         "SE": "169.150.208.162",
+         "DK": "193.29.107.104"
+	},
+	"all": false,
+	"group": "genre",
+	"regionalize": true,
+    "excludeGroups": "^Animals \\+ Nature$|^Anime$|^Big Brother Live$|^Competition Reality$|^Daytime TV$|^Det beste fra MTV$|^Documentaries$|^Documentary \\+ Science$|^Dokumentarer$|^En Español$|^En Français$|^For barn$|^Game Shows$|^History \\+ Science$|^Home \\+ Food$|^Kids en Français$|^Kids$|^Living$|^Local News$|^Mat & livsstil$|^Multicultural$|^Music Videos$|^Music$|^Musikk$|^News \\+ Opinion$|^News$|^Nyheter$|^Real Life Adventure$|^Reality TV$|^Reality$|^Realityserier$|^Sport$|^Sports$|^Talkshow$|^Top Gear$|^Westerns$|^Barn$|^Det bästa från MTV|^Dokumentärer|^Musik$|^Paradise Hotel$|^Svensk reality och underhållning$|^Det bedste fra MTV$|^For børn$|^Dansk reality & underholdning$|^Mad & livsstil$",
+    "excludeChannels": false,
+	"uniqueClientid": false,
+	"randomClientid": true,
+	"refresh": 0,
+	"xTvgUrl": false,
+	"ondemand": false,
+	"vlcopts": true,
+	"pipeopts": false
+}
