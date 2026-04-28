@@ -1,0 +1,120 @@
+name: Filter EPG to M3U Channels
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Pluto TV Data Updater"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  filter-epg:
+    runs-on: ubuntu-latest
+    # if triggered by workflow_run, only proceed if the upstream succeeded
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          REPO="${{ github.repository }}"
+          TAG="latest"
+
+          echo "Fetching asset list for tag: $TAG"
+          gh release download "$TAG" \
+            --repo "$REPO" \
+            --pattern "plutotv_*.m3u8" \
+            --pattern "plutotv_*.xml" \
+            --dir ./assets \
+            --clobber
+
+          echo "Downloaded files:"
+          ls -lh ./assets/
+
+      - name: Filter EPG XML to M3U channels only
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+
+          const dir = './assets';
+
+          // --- collect all tvg-ids from every downloaded m3u8 ---
+          const ids = new Set();
+          const m3uFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.m3u8'));
+
+          if (m3uFiles.length === 0) {
+            console.error('No plutotv_*.m3u8 files found in ./assets');
+            process.exit(1);
+          }
+
+          for (const f of m3uFiles) {
+            const lines = fs.readFileSync(`${dir}/${f}`, 'utf8').split('\n');
+            for (const line of lines) {
+              const m = line.match(/tvg-id="([^"]+)"/);
+              if (m && m[1].trim()) ids.add(m[1].trim());
+            }
+          }
+
+          console.log(`Found ${ids.size} unique tvg-ids across ${m3uFiles.length} M3U file(s)`);
+          if (ids.size === 0) {
+            console.error('No tvg-ids found — aborting to avoid producing empty XML');
+            process.exit(1);
+          }
+
+          // --- filter each xml ---
+          const xmlFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.xml'));
+
+          if (xmlFiles.length === 0) {
+            console.error('No plutotv_*.xml files found in ./assets');
+            process.exit(1);
+          }
+
+          for (const f of xmlFiles) {
+            const raw = fs.readFileSync(`${dir}/${f}`, 'utf8');
+            const originalChannels = (raw.match(/<channel /g) || []).length;
+            const originalProgrammes = (raw.match(/<programme /g) || []).length;
+
+            const filtered = raw
+              // strip <channel> blocks whose id is not in the set
+              .replace(/<channel [^>]*id="([^"]+)"[^>]*>[\s\S]*?<\/channel>/g, (block, id) =>
+                ids.has(id.trim()) ? block : '')
+              // strip <programme> blocks whose channel attr is not in the set
+              .replace(/<programme [^>]*channel="([^"]+)"[^>]*>[\s\S]*?<\/programme>/g, (block, ch) =>
+                ids.has(ch.trim()) ? block : '');
+
+            fs.writeFileSync(`${dir}/${f}`, filtered, 'utf8');
+
+            const keptChannels   = (filtered.match(/<channel /g)   || []).length;
+            const keptProgrammes = (filtered.match(/<programme /g) || []).length;
+
+            console.log(
+              `${f}: channels ${originalChannels} → ${keptChannels} | ` +
+              `programmes ${originalProgrammes} → ${keptProgrammes}`
+            );
+          }
+
+          console.log('Done.');
+          EOF
+
+      - name: Show filtered asset sizes
+        run: ls -lh ./assets/
+
+      - name: Upload filtered files to Latest Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: Latest Pluto TV Data
+          body: "Auto-generated Pluto TV playlists & EPG (updated ${{ github.event.repository.updated_at }}) — EPG filtered to M3U channels only"
+          files: |
+            assets/plutotv_*.m3u8
+            assets/plutotv_*.xml
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
