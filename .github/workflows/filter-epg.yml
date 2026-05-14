@@ -2,7 +2,7 @@ name: Filter EPG to M3U Channels
 
 on:
   schedule:
-    - cron: '30 */12 * * *'
+    - cron: '30 */6 * * *'
   workflow_dispatch:
   workflow_run:
     workflows: ["Pluto TV Data Updater"]
