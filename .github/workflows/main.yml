@@ -2,7 +2,7 @@ name: Pluto TV Data Updater
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */6 * * *'
   push:
     branches: [ "main" ]
   pull_request:
