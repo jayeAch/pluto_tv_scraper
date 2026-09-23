@@ -22,37 +22,24 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Download release assets
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify committed playlists exist
         run: |
-          REPO="${{ github.repository }}"
-          TAG="latest"
-
-          echo "Fetching asset list for tag: $TAG"
-          gh release download "$TAG" \
-            --repo "$REPO" \
-            --pattern "plutotv_*.m3u8" \
-            --pattern "plutotv_*.xml" \
-            --dir ./assets \
-            --clobber
-
-          echo "Downloaded files:"
-          ls -lh ./assets/
+          echo "Contents of playlists/:"
+          ls -lh playlists/ || { echo "playlists/ directory missing"; exit 1; }
 
       - name: Filter EPG XML to M3U channels only
         run: |
           node - <<'EOF'
           const fs = require('fs');
 
-          const dir = './assets';
+          const dir = './playlists';
 
-          // --- collect all tvg-ids from every downloaded m3u8 ---
+          // --- collect all tvg-ids from every committed m3u8 ---
           const ids = new Set();
           const m3uFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.m3u8'));
 
           if (m3uFiles.length === 0) {
-            console.error('No plutotv_*.m3u8 files found in ./assets');
+            console.error('No plutotv_*.m3u8 files found in ./playlists');
             process.exit(1);
           }
 
@@ -70,17 +57,17 @@ jobs:
             process.exit(1);
           }
 
-          // --- filter each xml ---
+          // --- filter each committed xml ---
           const xmlFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.xml'));
 
           if (xmlFiles.length === 0) {
-            console.error('No plutotv_*.xml files found in ./assets');
+            console.error('No plutotv_*.xml files found in ./playlists');
             process.exit(1);
           }
 
           for (const f of xmlFiles) {
             const raw = fs.readFileSync(`${dir}/${f}`, 'utf8');
-            const originalChannels = (raw.match(/<channel /g) || []).length;
+            const originalChannels   = (raw.match(/<channel /g)   || []).length;
             const originalProgrammes = (raw.match(/<programme /g) || []).length;
 
             const filtered = raw
@@ -106,7 +93,19 @@ jobs:
           EOF
 
       - name: Show filtered asset sizes
-        run: ls -lh ./assets/
+        run: ls -lh ./playlists/
+
+      - name: Commit and push filtered EPGs back to repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playlists/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: filter EPG to M3U channels [skip ci]"
+            git push
+          fi
 
       - name: Upload filtered files to Latest Release
         uses: softprops/action-gh-release@v2
@@ -115,8 +114,8 @@ jobs:
           name: Latest Pluto TV Data
           body: "Auto-generated Pluto TV playlists & EPG (updated ${{ github.event.repository.updated_at }}) — EPG filtered to M3U channels only"
           files: |
-            assets/plutotv_*.m3u8
-            assets/plutotv_*.xml
+            playlists/plutotv_*.m3u8
+            playlists/plutotv_*.xml
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
