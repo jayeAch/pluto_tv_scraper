@@ -15,10 +15,13 @@ permissions:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    # Don't try to push back on PRs (checkout is a merge ref, not writable)
+    if: github.event_name != 'pull_request'
     steps:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Use Node.js LTS
         uses: actions/setup-node@v4
@@ -31,26 +34,65 @@ jobs:
       - name: Generate Pluto TV files
         run: node index 2>&1 | tee generation.log
 
+      - name: Diagnose — show everything that was generated
+        run: |
+          echo "=== Repo root ==="
+          ls -la
+          echo "=== Any m3u8/xml under repo (excluding node_modules) ==="
+          find . -path ./node_modules -prune -o \( -name '*.m3u8' -o -name '*.xml' \) -print || true
+          echo "=== Playlists dir (if it exists) ==="
+          ls -la playlists/ 2>/dev/null || echo "(no playlists/ yet)"
+
       - name: Move generated files to playlists/
         run: |
           mkdir -p playlists
           shopt -s nullglob
-          files=(plutotv_*.m3u8 plutotv_*.xml)
-          if [ ${#files[@]} -gt 0 ]; then
-            mv "${files[@]}" playlists/
+
+          moved=0
+
+          # 1) move anything matching plutotv_* from the repo root
+          root_files=(plutotv_*.m3u8 plutotv_*.xml)
+          if [ ${#root_files[@]} -gt 0 ]; then
+            echo "Moving from repo root: ${root_files[*]}"
+            mv "${root_files[@]}" playlists/
+            moved=1
           fi
+
+          # 2) if index wrote to common subdirs, pick them up too
+          for d in output out data dist build generated; do
+            if [ -d "$d" ]; then
+              sub=( "$d"/plutotv_*.m3u8 "$d"/plutotv_*.xml )
+              if [ ${#sub[@]} -gt 0 ]; then
+                echo "Moving from $d/: ${sub[*]}"
+                mv "${sub[@]}" playlists/
+                moved=1
+              fi
+            fi
+          done
+
+          # 3) sanity check: did we end up with files in playlists/?
+          if ! ls playlists/plutotv_* >/dev/null 2>&1; then
+            echo "ERROR: no plutotv_* files ended up in playlists/"
+            echo "Check the 'Diagnose' step above to see what index actually produced."
+            exit 1
+          fi
+
+          echo "=== playlists/ now contains ==="
           ls -la playlists/
 
       - name: Commit and push to repository
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add playlists/
+
+          git add -f playlists/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
+            git status
             git commit -m "chore: update Pluto TV playlists & EPG [skip ci]"
-            git push
+            # Explicit refspec so it works on schedule / workflow_dispatch too
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
       - name: Upload to Latest Release
