@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0          # full history so git push works cleanly
 
       - name: Verify committed playlists exist
         run: |
@@ -104,7 +105,7 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: filter EPG to M3U channels [skip ci]"
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
       - name: Upload filtered files to Latest Release
