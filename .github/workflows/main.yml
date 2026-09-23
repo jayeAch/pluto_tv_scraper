@@ -31,6 +31,28 @@ jobs:
       - name: Generate Pluto TV files
         run: node index 2>&1 | tee generation.log
 
+      - name: Move generated files to playlists/
+        run: |
+          mkdir -p playlists
+          shopt -s nullglob
+          files=(plutotv_*.m3u8 plutotv_*.xml)
+          if [ ${#files[@]} -gt 0 ]; then
+            mv "${files[@]}" playlists/
+          fi
+          ls -la playlists/
+
+      - name: Commit and push to repository
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add playlists/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update Pluto TV playlists & EPG [skip ci]"
+            git push
+          fi
+
       - name: Upload to Latest Release
         uses: softprops/action-gh-release@v2
         with:
@@ -38,8 +60,8 @@ jobs:
           name: Latest Pluto TV Data
           body: "Auto-generated Pluto TV playlists & EPG (updated ${{ github.event.repository.updated_at }})"
           files: |
-            plutotv_*.m3u8
-            plutotv_*.xml
+            playlists/plutotv_*.m3u8
+            playlists/plutotv_*.xml
           make_latest: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
