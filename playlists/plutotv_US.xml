@@ -768,6 +768,7 @@
     
     
     
+    
     <programme channel="68fbf8101d26140175db8b58-US" start="20261009223000 +0000" stop="20261010010000 +0000">
         <title>Indiana Jones and the Temple of Doom</title>
         <desc>Indiana Jones and the Temple of Doom brings you thrills and excitement. Indy, his sidekick Short Round, and nightclub singer Willie Scott go from high-flying action above the Himalayas to a spine-tingling escape from a fortress-like mine in India.</desc>
@@ -3617,6 +3618,7 @@
     
     
     
+    
     <programme channel="561d7d484dc7c8770484914a-US" start="20261010040000 +0000" stop="20261010070000 +0000">
         <title>Clear and Present Danger</title>
         <desc>When his mentor, Admiral James Greer, becomes ill, Ryan is appointed acting CIA Director of Intelligence.</desc>
@@ -3832,6 +3834,7 @@
         <desc>When a train carrying atomic warheads crashes in the Soviet Union, nuclear specialist Dr. Kelly discovers the accident is really part of a plot to cover up the theft of the weapons.</desc>
         <icon src="https://images.pluto.tv/series/5c64787791482f7c81e5f335/tile_1778706361815.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
@@ -6721,6 +6724,7 @@
     
     
     
+    
     <programme channel="561d7d484dc7c8770484914a-US" start="20261010070000 +0000" stop="20261010094500 +0000">
         <title>The Sum of All Fears</title>
         <desc>East-West tensions erupt when the CIA suspects that renegade Russian scientists are developing more nuclear weapons.</desc>
@@ -6883,6 +6887,7 @@
     
     
     
+    
     <programme channel="617b37b361e0fd0008cfd8c5-US" start="20261010061500 +0000" stop="20261010084500 +0000">
         <title>Hollow Man</title>
         <desc>Kevin Bacon and Elisabeth Shue play former lovers who, along with a team of other scientists like themselves, discover the secret of invisibility.</desc>
@@ -6897,6 +6902,11 @@
         <title>Robocop (2014)</title>
         <desc>In 2028 Detroit, when Alex Murphy (Joel Kinnaman) -- a loving husband, father and good cop -- is critically injured in the line of duty, the multinational conglomerate OmniCorp sees their chance for a part-man, part-robot police officer.</desc>
         <icon src="https://images.pluto.tv/series/652f30e03e6938001aed11c0/tile_1785258722119.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
+    <programme channel="617b37b361e0fd0008cfd8c5-US" start="20261010133000 +0000" stop="20261010154500 +0000">
+        <title>Virtuosity</title>
+        <desc>He’s a composite of some 200 personalities, every one a notorious killer. He’s Sid 6.7, a virtual reality creation designed to put L.A. police officers to the test.</desc>
+        <icon src="https://images.pluto.tv/series/5e741e73725522001446fd88/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
     
     
@@ -6916,6 +6926,11 @@
         <desc>During World War II's Battle of Okinawa, U.S. Army medic Desmond Doss (Andrew Garfield) braves bullets, grenades and snipers while single-handedly evacuating the wounded from behind enemy lines.</desc>
         <icon src="https://images.pluto.tv/series/65d695a203625d00136db1f4/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    <programme channel="645e7828e1979c00087b75b4-US" start="20261010134900 +0000" stop="20261010155000 +0000">
+        <title>The Impossible</title>
+        <desc>A couple and their three sons encounter terror, courage and compassion following the December 2004 tsunami that devastated Thailand.</desc>
+        <icon src="https://images.pluto.tv/series/64e5614a8f763a00133add2f/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
     <programme channel="64b585f84ea480000838e446-US" start="20261010083000 +0000" stop="20261010111500 +0000">
         <title>The Peacemaker</title>
         <desc>When a train carrying atomic warheads crashes in the Soviet Union, nuclear specialist Dr. Kelly discovers the accident is really part of a plot to cover up the theft of the weapons.</desc>
@@ -6931,6 +6946,7 @@
         <desc>Major (Scarlett Johansson) is the first of her kind, a human mind inside an artificial body. Discovering her creators lied about her past life to control her, Major will stop at nothing to unravel the mystery of her true identity and exact revenge.</desc>
         <icon src="https://images.pluto.tv/series/601aef6d6d7ca5001ae9061c/tile_1769454002297.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
@@ -7286,6 +7302,7 @@
         <desc>Jennifer tries to help Jeff’s sore neck with a massage until the situation between them becomes uncomfortable and upsets Audrey. Meanwhile, Russell brings Adam along to help him fight off a school yard bully so Russell can get close to the teacher.</desc>
         <icon src="https://images.pluto.tv/series/63bee6dbeb85c5001335c70e/tile_1774554121385.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
@@ -9809,6 +9826,7 @@
     
     
     
+    
     <programme channel="561d7d484dc7c8770484914a-US" start="20261010120000 +0000" stop="20261010143000 +0000">
         <title>Patriot Games</title>
         <desc>Jack Ryan is caught in the middle of a terrorist attack. Ryan helps to thwart Holmes’ assailants and becomes a local hero. But Ryan’s act marks him as a target. Now he must return to action to save his family.</desc>
@@ -9860,6 +9878,7 @@
         <desc>Truman doesn’t realize that his quaint hometown is a giant studio set run by a visionary producer/director/creator (Ed Harris), that folks living and working there are Hollywood actors, and that even his incessantly bubbly wife is a contract player.</desc>
         <icon src="https://images.pluto.tv/series/602abc2c41fd63001a5a76d2/tile_1791479883453.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
@@ -9970,6 +9989,11 @@
         <desc>To his classmates and teachers, high-schooler Ben Manibag appears to be the model student: a perfectionist and overachiever. But underneath this persona is a darker side. Ben and his bored high-school buddies lead double lives.</desc>
         <icon src="https://images.pluto.tv/series/58de8eaee8f51b555ac38f7e/tile_1774909081041.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    <programme channel="5f4d863b98b41000076cd061-US" start="20261010171500 +0000" stop="20261010193000 +0000">
+        <title>Ferris Bueller's Day Off</title>
+        <desc>High school senior, Ferris Bueller, decides to cut school and is determined to experience a day of pure freedom with his girlfriend and best friend in downtown Chicago before graduating.</desc>
+        <icon src="https://images.pluto.tv/series/612595c4964d2000141b3ee6/tile_1790028814772.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
     
     
     
@@ -10024,6 +10048,7 @@
         <desc>Two girlfriends on a summer holiday in Spain became enamored with the same painter, fully unaware that his ex-wife, with whom he still has a tempestuous relationship, is about to re-enter the picture.</desc>
         <icon src="https://images.pluto.tv/series/6079d2dfa224c9001bba7676/tile_1752612812487.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
@@ -12905,6 +12930,7 @@
     
     
     
+    
     <programme channel="561d7d484dc7c8770484914a-US" start="20261010143000 +0000" stop="20261010173000 +0000">
         <title>Clear and Present Danger</title>
         <desc>When his mentor, Admiral James Greer, becomes ill, Ryan is appointed acting CIA Director of Intelligence.</desc>
@@ -12959,6 +12985,7 @@
     
     
     
+    
     <programme channel="5b4e69e08291147bd04a9fd7-US" start="20261010141506 +0000" stop="20261010164506 +0000">
         <title>Flatliners</title>
         <desc>Are you afraid to die? Kiefer Sutherland isn't. He's an ambitious, charismatic medical student who persuades his classmates, Julia Roberts and Kevin Bacon, to take part in a reckless experiment. Rated: R</desc>
@@ -12973,6 +13000,11 @@
         <title>Panic Room</title>
         <desc>When her home is invaded by three armed robbers, a divorced woman and her young daughter hide in their specially designed panic room, but end up in a deadly cat-and-mouse game anyway.</desc>
         <icon src="https://images.pluto.tv/series/611f1eede4122100137b3d43/tile_1791475201936.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
+    <programme channel="5b4e69e08291147bd04a9fd7-US" start="20261010220006 +0000" stop="20261011000006 +0000">
+        <title>Joy Ride</title>
+        <desc>When a psychotic trucker takes offense at the pranks pulled by a couple of college students, the young kids are sucked into a whirlpool of terror.</desc>
+        <icon src="https://images.pluto.tv/series/60d9fd2689632c0013eb22e0/tile_1791329763912.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
     
     
@@ -13128,6 +13160,8 @@
     
     
     
+    
+    
     <programme channel="68fbf8101d26140175db8b58-US" start="20261010141500 +0000" stop="20261010170000 +0000">
         <title>Indiana Jones and the Kingdom of the Crystal Skull</title>
         <desc>STEVEN SPIELBERG and GEORGE LUCAS present Indiana Jones and the Kingdom of the Crystal Skull. Join Indy as he races against a brilliant and beautiful agent for the mystical, all-powerful crystal skull of Akator in this thrilling adventure!</desc>
@@ -13244,6 +13278,11 @@
         <title>Point Break</title>
         <desc>An F.B.I. Agent goes undercover to catch a gang of surfers who may be bank robbers.</desc>
         <icon src="https://images.pluto.tv/series/6494a138fafd83001301772c/tile_1783419841014.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
+    <programme channel="5c665db3e6c01b72c4977bc2-US" start="20261010213001 +0000" stop="20261011000001 +0000">
+        <title>To Live And Die In L.A.</title>
+        <desc>Federal agent Richard Chance has a score to settle, and he's through playing by the rules. He vows to take down a murderous counterfeiter by any means necessary. But as the stakes grow higher, will Chance's obsession ultimately destroy him?</desc>
+        <icon src="https://images.pluto.tv/series/67db1705917edb24221b8670/tile_1751923441679.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
     <programme channel="5ca671f215a62078d2ec0abf-US" start="20261010163000 +0000" stop="20261010170000 +0000">
         <title>Nathan For You</title>
@@ -15949,6 +15988,7 @@
     
     
     
+    
     <programme channel="561d7d484dc7c8770484914a-US" start="20261010201500 +0000" stop="20261010223000 +0000">
         <title>Jack Ryan: Shadow Recruit</title>
         <desc>Jack Ryan must quickly evolve from soldier to analyst to full-fledged operative to stop a devastating terrorist plot against the United States.</desc>
@@ -16120,6 +16160,7 @@
         <desc>He’s a composite of some 200 personalities, every one a notorious killer. He’s Sid 6.7, a virtual reality creation designed to put L.A. police officers to the test.</desc>
         <icon src="https://images.pluto.tv/series/5e741e73725522001446fd88/tile.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
