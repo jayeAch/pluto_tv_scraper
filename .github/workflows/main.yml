@@ -80,6 +80,44 @@ jobs:
           echo "=== playlists/ now contains ==="
           ls -la playlists/
 
+      - name: Filter EPG XML to M3U channels only
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const dir = './playlists';
+
+          const m3uFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.m3u8'));
+          const xmlFiles = fs.readdirSync(dir).filter(f => f.startsWith('plutotv_') && f.endsWith('.xml'));
+          if (!m3uFiles.length || !xmlFiles.length) {
+            console.error('Missing plutotv_*.m3u8 or plutotv_*.xml in ./playlists');
+            process.exit(1);
+          }
+
+          // collect every tvg-id from the m3u8 files
+          const ids = new Set();
+          for (const f of m3uFiles) {
+            for (const line of fs.readFileSync(`${dir}/${f}`, 'utf8').split('\n')) {
+              const m = line.match(/tvg-id="([^"]+)"/);
+              if (m && m[1].trim()) ids.add(m[1].trim());
+            }
+          }
+          console.log(`Found ${ids.size} unique tvg-ids across ${m3uFiles.length} M3U file(s)`);
+          if (ids.size === 0) {
+            console.error('No tvg-ids found - aborting to avoid producing empty XML');
+            process.exit(1);
+          }
+
+          // filter each xml in place
+          for (const f of xmlFiles) {
+            const raw = fs.readFileSync(`${dir}/${f}`, 'utf8');
+            const filtered = raw
+              .replace(/<channel [^>]*id="([^"]+)"[^>]*>[\s\S]*?<\/channel>/g, (b, id) => ids.has(id.trim()) ? b : '')
+              .replace(/<programme [^>]*channel="([^"]+)"[^>]*>[\s\S]*?<\/programme>/g, (b, ch) => ids.has(ch.trim()) ? b : '');
+            fs.writeFileSync(`${dir}/${f}`, filtered, 'utf8');
+            console.log(`${f}: channels ${(raw.match(/<channel /g)||[]).length} -> ${(filtered.match(/<channel /g)||[]).length} | programmes ${(raw.match(/<programme /g)||[]).length} -> ${(filtered.match(/<programme /g)||[]).length}`);
+          }
+          EOF
+
       - name: Commit and push to repository
         run: |
           git config user.name  "github-actions[bot]"
