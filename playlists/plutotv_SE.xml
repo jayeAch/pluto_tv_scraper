@@ -1025,6 +1025,11 @@
         <desc>Filmen kommer från den BAFTA-prisbelönte regissören Chen Kaige och utspelar sig under Tangdynastin. En demonkatt dyker plötsligt upp och stör friden i staden Chang'an och orsakar en rad märkliga händelser.</desc>
         <icon src="https://images.pluto.tv/series/638ef904c61978001382be41/tile_1767981614674.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    <programme channel="61c0afa0a09bbe00078f8378-SE" start="20261024182713 +0000" stop="20261024195959 +0000">
+        <title>10 Items or Less</title>
+        <desc>Oscar®-vinnaren Morgan Freeman spelar här en filmstjärna som ger sig ut på rollförberedande research i ett snabbköp i Los Angeles. Han möter en snabbtalande kassörska och de ger sig av på en gemensam resa för att visa varandra sina respektive världar.</desc>
+        <icon src="https://images.pluto.tv/series/65b252e904045f0013d9feb0/tile_1767987722505.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
+    </programme>
     <programme channel="61c0b0688a80a4000703fbcb-SE" start="20261024135942 +0000" stop="20261024145842 +0000">
         <title>The FBI Files: Hired Gun</title>
         <desc>When three people were found murdered in their home, it appeared like a burglary gone awry. But a crime this horrific deserved a closer look.</desc>
@@ -4955,6 +4960,7 @@
         <desc>Vincent Price is a man haunted by his past. In this case, the past comes in the form of his now-deceased first wife Ligeia, who casts a shadow over an ill-advised second marriage, especially when Ligeia’s spirit returns in the form of a black cat.</desc>
         <icon src="https://images.pluto.tv/series/6a4560fcf672c3d2df3b5d11/tile_1782931709438.jpg?fill=blur&amp;fit=fill&amp;fm=jpg&amp;h=660&amp;q=75&amp;w=660"/>
     </programme>
+    
     
     
     
